@@ -1,0 +1,401 @@
+/* Reset dan dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header dan navigasi */
+header {
+    background-color: #00695c;
+    color: #fff;
+    padding: 20px 20px; /* Tambahkan padding horizontal */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex; /* Gunakan flexbox untuk tata letak */
+    align-items: center;
+    justify-content: space-between; /* Pisahkan konten kiri dan kanan */
+    position: relative; /* Penting untuk penempatan logo kecil */
+}
+
+/* Styling untuk logo utama di header (teks "Nirāvasēṣa Project") */
+header .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff; /* Ubah warna teks logo agar terlihat di header */
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    /* Ini adalah aturan untuk logo yang terbungkus dalam .logo,
+       jika Anda ingin menggunakan gambar sebagai bagian dari teks logo */
+    height: 30px; /* Atur tinggi logo */
+    width: auto; /* Pertahankan rasio aspek */
+    margin-right: 10px; /* Tambahkan spasi */
+    display: none; /* Sembunyikan logo ini jika Anda hanya ingin teks sebagai logo utama */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara item navigasi */
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #c8e6c9;
+}
+
+/* Styling untuk logo kecil di pojok kanan atas */
+.logo-small {
+    height: 30px; /* Atur tinggi logo kecil */
+    width: auto; /* Pertahankan rasio aspek */
+    margin-left: 20px; /* Tambahkan margin kiri agar ada jarak dari menu */
+    display: block; /* Pastikan elemen ini ditampilkan */
+}
+
+.logo-small img {
+    height: 100%;
+    width: auto;
+}
+
+.menu-toggle {
+    display: none; /* Sembunyikan tombol di layar besar */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
+    background-color: #e0f2f1;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%; /* Memastikan gambar tidak melebihi lebar kontainer */
+    height: auto; /* Mempertahankan rasio aspek gambar */
+    border-radius: 10px;
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    display: flex; /* Aktifkan flexbox untuk konten */
+    flex-direction: column;
+    align-items: center; /* Pusatkan item secara horizontal */
+    text-align: center; /* Pusatkan teks di sini juga */
+}
+
+/* Styling untuk logo besar di hero section */
+.hero-logo {
+    max-width: 200px; /* Atur lebar maksimum sesuai kebutuhan */
+    height: auto; /* Mempertahankan rasio aspek gambar */
+    margin-bottom: 20px; /* Tambahkan margin bawah jika diperlukan */
+    /* Karena parentnya (hero-content) sudah diatur align-items: center,
+       ini akan otomatis terpusat secara horizontal */
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    color: #004d40;
+}
+
+.hero-content h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-weight: 400;
+    color: #00796b;
+}
+
+.hero-content p {
+    margin: 20px 0;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+    display: flex; /* Atur tombol sebagai flexbox */
+    justify-content: center; /* Pusatkan tombol secara horizontal */
+    gap: 10px; /* Beri jarak antar tombol */
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Tumpuk item header secara vertikal */
+        align-items: flex-start; /* Sejajarkan item ke kiri */
+        padding: 15px; /* Sesuaikan padding header untuk layar kecil */
+    }
+
+    /* Mengatur posisi logo kecil di layar kecil */
+    .logo-small {
+        margin-left: 0; /* Hapus margin kiri di layar kecil */
+        position: absolute; /* Posisikan absolut di dalam header */
+        top: 15px; /* Sesuaikan dari atas */
+        right: 15px; /* Pindah ke kanan */
+    }
+
+    nav {
+        max-width: none; /* Hapus batasan lebar */
+        width: 100%; /* Ambil lebar penuh */
+        padding: 0;
+        flex-direction: column; /* Tumpuk navigasi */
+        align-items: flex-start; /* Sejajarkan ke kiri */
+    }
+
+    nav ul {
+        display: none; /* Sembunyikan menu di layar kecil */
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px; /* Tambahkan spasi di bawah logo/toggle */
+        width: 100%; /* Ambil lebar penuh */
+    }
+
+    nav ul.active {
+        display: flex; /* Tampilkan menu saat aktif */
+    }
+
+    .menu-toggle {
+        display: block; /* Tampilkan tombol di layar kecil */
+        order: -1; /* Posisikan toggle di awal */
+        margin-bottom: 10px; /* Beri jarak dari menu */
+    }
+
+    header .logo {
+        margin-bottom: 10px; /* Jarak antara logo utama dan menu di layar kecil */
+    }
+
+
+    .hero {
+        flex-direction: column; /* Tumpuk konten hero */
+        text-align: center; /* Pusatkan teks */
+    }
+
+    .hero-content {
+        align-items: center; /* Pusatkan konten hero pada layar kecil */
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Tumpuk tombol */
+        gap: 10px;
+        align-items: center; /* Pusatkan tombol */
+    }
+
+    .vision-mission {
+        flex-direction: column;
+    }
+
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: #00796b;
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: #004d40;
+}
+
+.secondary-btn {
+    background-color: #b2dfdb;
+    color: #004d40;
+    margin-left: 10px;
+}
+
+.secondary-btn:hover {
+    background-color: #80cbc4;
+}
+
+/* Sections Umum */
+.section-padding {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.bg-light {
+    background-color: #f0f0f0;
+}
+
+/* About */
+.about-content p {
+    margin-bottom: 15px;
+}
+
+.vision-mission {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Services */
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.price-table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+.price-table th, .price-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.price-table th {
+    background-color: #00796b;
+    color: white;
+}
+
+.note {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px; /* Atur tinggi gambar sesuai kebutuhan */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Untuk memastikan video juga responsif */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Rasio 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Blog */
+.blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.blog-post-card {
+    flex: 1 1 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Formulir Kontak */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #004d40;
+    color: white;
+    padding: 20px;
+    margin-top: 40px;
+}
